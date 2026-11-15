@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+            
+        }
+
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+
+        input:hover{
+            background-color: brown;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            color:aqua;
+            background-color:black;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        .delete-btn {
+            margin-left: 10px;
+            color: white;
+            background: red;
+            border: none;
+            padding: 5px 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Shopping List</h2>
+
+    <input type="text" id="itemInput" placeholder="Enter item">
+    <button onclick="addItem()">Add</button>
+
+    <ul id="shoppingList"></ul>
+
+    <script>
+        function addItem() {
+            let item = document.getElementById("itemInput").value;
+
+            if (item.trim() === "") {
+                alert("Please enter an item!");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.textContent = item;
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.className = "delete-btn";
+
+            deleteBtn.onclick = function () {
+                li.remove();
+            };
+
+            li.appendChild(deleteBtn);
+
+            document.getElementById("shoppingList").appendChild(li);
+
+            document.getElementById("itemInput").value = "";
+        }
+    </script>
+
+</body>
+</html>
