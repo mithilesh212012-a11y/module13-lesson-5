@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Today Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f0f8ff;
+        }
+
+        .calendar-box {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calendar-box">
+        <h2>Today's Calendar</h2>
+        <p id="date"></p>
+        <p id="day"></p>
+    </div>
+
+    <script>
+        let today = new Date();
+
+        let days = [
+            "Sunday", "Monday", "Tuesday",
+            "Wednesday", "Thursday",
+            "Friday", "Saturday"
+        ];
+
+        let months = [
+            "January", "February", "March",
+            "April", "May", "June",
+            "July", "August", "September",
+            "October", "November", "December"
+        ];
+
+        let currentDate = today.getDate();
+        let currentMonth = months[today.getMonth()];
+        let currentYear = today.getFullYear();
+        let currentDay = days[today.getDay()];
+
+        document.getElementById("date").innerHTML =
+            `${currentDate} ${currentMonth} ${currentYear}`;
+
+        document.getElementById("day").innerHTML =
+            `Day: ${currentDay}`;
+    </script>
+
+</body>
+</html>
